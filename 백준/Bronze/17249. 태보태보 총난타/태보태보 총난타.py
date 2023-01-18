@@ -1,0 +1,6 @@
+string = input()
+l_face = string.index("(")
+r_face = string.index(")")
+l_hand = string.count("@",0 , l_face)
+r_hand = string.count("@",r_face)
+print(l_hand, r_hand)
