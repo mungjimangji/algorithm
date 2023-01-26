@@ -1,20 +1,15 @@
 for _ in range(int(input())):
-    string = list(input())
-    result_list = []
-
+    string = input()
+    a = 0
+    b = 0
     for s in string:
         if s == "(":
-            result_list.append(s)
-            
+            a += 1
         elif s == ")":
-            try:
-                result_list.pop()
-            except:
-                result_list.append(s)
-                break
-
-
-    if len(result_list) == 0: 
+            b += 1
+        if a < b:
+            break
+    if a == b:
         print("YES")
     else:
         print("NO")
