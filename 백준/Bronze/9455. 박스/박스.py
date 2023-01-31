@@ -18,18 +18,13 @@ for _ in range(T):
  
     result = 0
     for mat in new_matrix:
-        if 0 not in mat:
-            continue
-        elif mat.count(1) == 1 and mat[-1] == 1:
-            continue
-        else:
-            for _ in range(len(mat)):
-                if mat[0] == 1:
-                   cnt = mat.count(0)
-                   result += cnt
-                   del mat[0]
-
-                elif mat[0] == 0:
-                    del mat[0]
+    
+        for _ in range(len(mat)):
+            if mat[0] == 1:
+               cnt = mat.count(0)
+               result += cnt
+               del mat[0]
+            elif mat[0] == 0:
+                del mat[0]
 
     print(result)
