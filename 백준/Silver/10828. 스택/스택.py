@@ -1,26 +1,26 @@
 import sys
-from collections import deque
+input = sys.stdin.readline
 
-stack = deque()
+stack = []
 for _ in range(int(input())):
-    command = deque(sys.stdin.readline().split())
-
-    if "push" in command:
-        stack.append(command[1])
-    elif "pop" in command:
-        if stack:
+    x = input().rstrip('\n')
+    n = x[:5]
+    if n == 'push ':
+        stack.append(int(x[5:]))
+    elif x == 'pop':
+        if len(stack) > 0:
             print(stack.pop())
         else:
             print(-1)
-    elif "size" in command:
+    elif x == 'size':
         print(len(stack))
-    elif "empty" in command:
-        if stack:
+    elif x == 'empty':
+        if len(stack) > 0:
             print(0)
         else:
             print(1)
-    elif "top" in command:
-        if stack:
+    elif x == 'top':
+        if len(stack) > 0:
             print(stack[-1])
         else:
             print(-1)
