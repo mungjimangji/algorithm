@@ -1,28 +1,17 @@
-def plus(X, Y):
-    return int(X) + int(Y)
-
-
-def minus(X, Y):
-    return int(X) - int(Y)
-
-
-def calculator(X, Y, operator):
-    calc_dict = {
-        "+": plus, "-": minus
-    }
-    
-    return calc_dict[operator](X, Y)
-    
-
-def solution(quiz_list):
+def solution(quiz):
     answer = []
-    
-    for quiz in quiz_list:
-        X, operator, Y, equal, Z = quiz.split()
+    for string in quiz:
+        x, sign, y, equal, z = string.split()
+        if sign == "-":
+            if int(z) == int(x) - int(y):
+                answer.append("O")
+            else:
+                answer.append("X")
+        elif sign == "+":
+            if int(z) == int(x) + int(y):
+                answer.append("O")
+            else:
+                answer.append("X")
         
-        if calculator(X=X, Y=Y, operator=operator) == int(Z):
-            answer.append("O")
-        else:
-            answer.append("X")
-        
+
     return answer
