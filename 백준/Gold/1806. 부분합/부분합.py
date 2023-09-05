@@ -11,7 +11,7 @@ partial_sum = 0
 
 
 while True:
-    # S보다 커지면
+    
     if partial_sum >= S:
         if min_length > end - start:
             min_length = end - start
@@ -19,7 +19,7 @@ while True:
         start += 1
     elif end == N:
         break
-    elif partial_sum < S:
+    else:
         partial_sum += sequence[end]
         end += 1
 
