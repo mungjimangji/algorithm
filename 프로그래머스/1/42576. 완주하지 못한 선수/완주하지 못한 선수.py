@@ -10,10 +10,9 @@ def solution(participant, completion):
         a = p.popleft()
         if c[i] != a:
             answer = a
-            check = True
-            break
-    if check == False:
-        answer = p.pop()
+            return answer
+    
+    answer = p.pop()
             
             
     return answer
