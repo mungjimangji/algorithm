@@ -1,18 +1,8 @@
-from collections import deque
+from collections import Counter
+
 def solution(participant, completion):
     
-    participant.sort()
-    completion.sort()
-    p = deque(participant)
-    c = deque(completion)
-    check = False
-    for i in range(len(c)):
-        a = p.popleft()
-        if c[i] != a:
-            answer = a
-            return answer
-    
-    answer = p.pop()
-            
-            
+    dict_result = Counter(participant) - Counter(completion)
+   
+    answer = list(dict_result.keys())[0]
     return answer
