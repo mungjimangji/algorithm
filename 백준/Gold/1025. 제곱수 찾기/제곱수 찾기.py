@@ -12,8 +12,8 @@ def sqr(S):
 
 for i in range(N): #시작 x좌표
     for j in range(M): # 시작 y좌표
-        for row_d in range(-N,N): # 행의 등차
-            for col_d in range(-M,M): # 열의 등차
+        for row_d in range((-i-1),N): # 행의 등차
+            for col_d in range((-j-1),M): # 열의 등차
                 S = ""
                 x,y = i,j
                 if row_d == 0 and col_d == 0:
