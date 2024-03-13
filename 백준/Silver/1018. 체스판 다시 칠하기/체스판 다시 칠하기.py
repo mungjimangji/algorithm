@@ -1,31 +1,30 @@
-N ,M = map(int, input().split())
+# 체스판 만들기
+N, M = map(int, input().split())
+chats = []
 
-graph = []
 for _ in range(N):
-    string = list(input())
-    graph.append(string)
+    c = list(input())
+    chats.append(c)
+result = 64
+for a in range(N-7):
+    for b in range(M-7):
+        # print(a,b)
+        index1 = 0 # 홀수가 W인 경우 짝수가 B인경우
+        index2 = 0 # 짝수가 W인 경우 홀수가 B인경우
 
-result = []
-for n in range(N-7): # 가로
-    for m in range(M-7): # 세로
-        draw1 = 0
-        draw2 = 0
-        for i in range(8): # 가로 돌기
-            for j in range(8): # 세로 돌기
-                i_1 = i + n
-                j_1 = j + m
+        for i in range(a, 8+a):
+            for j in range(b, 8+b):
+                # print(i,j)
+                if (i + j) % 2: # 두개 더해서 홀수인 경우 ex) (0,1)
+                    if chats[i][j] == "B":
+                        index1 += 1
+                    elif chats[i][j] == "W":
+                        index2 += 1
+                else: # 두개 더해서 짝수일 경우
+                    if chats[i][j] == "B":
+                        index2 += 1
+                    elif chats[i][j] == "W":
+                        index1 += 1
 
-                if (i_1 + j_1)  % 2 == 0:
-                    if graph[i_1][j_1] == "B":
-                        draw1 += 1
-                    if graph[i_1][j_1] == "W":
-                        draw2 += 1
-
-                else:
-                    if graph[i_1][j_1] == "W":
-                        draw1 += 1
-                    if graph[i_1][j_1] == "B":
-                        draw2 += 1
-        result.append(draw1)
-        result.append(draw2)
-print(min(result))
+        result = min(result, index1, index2)
+print(result)
